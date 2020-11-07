@@ -1,0 +1,18 @@
+---
+# tasks file for webapp
+
+- name: Install httpd program in webservers
+  package:
+          name: "httpd"
+          state: present
+
+- name: Copy the required file to the webservers directory
+  copy:
+          content: "This content is transferrred from the vm {{  ansible_hostname }}"
+          dest: /var/www/html/index.html
+
+- name: Start the Httpd services
+  service:
+          name: "httpd"
+          state: started
+

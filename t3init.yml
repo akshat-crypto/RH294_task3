@@ -1,0 +1,7 @@
+- hosts: webapp
+  roles:
+  - role: webapp
+
+- hosts: loadbalancer
+  roles:
+  - role: loadbalancer
